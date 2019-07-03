@@ -12,7 +12,13 @@ namespace mod
 			
 		private:
 			void run();
-			
+
+			u16 itemsFound;
+
+			u8 frameCount;
+			u32 secondsSinceStart;			
+			u32 resetConsoleAtSeconds;
+
 			void procCreateItemForTrBoxDemo(const float[3], s32, s32, s32, const float[3], const float[3]);
 			
 		private:
