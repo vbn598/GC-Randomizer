@@ -26,6 +26,14 @@ void setConsole(bool activeFlag, u32 totalLines)
 	}
 }
 
+void clearConsole(u8 lines)
+{
+	for(u8 line = 0; line < lines; line++)
+	{
+		tp::JFWSystem::systemConsole->consoleLine[line].line[0] = '\0';
+	}
+}
+
 void clear_DC_IC_Cache(void* ptr, u32 size)
 {
 	gc::OSCache::DCFlushRange(ptr, size);

@@ -37,12 +37,13 @@ namespace mod
 		setConsoleColor(0xA000A050);
 		setConsole(true, 20);
 
-		resetConsoleAtSeconds = 10;
+		resetConsoleAtSeconds = 15;
 
 		itemsFound = 0;
 
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
-		strcpy(tp::JFWSystem::systemConsole->consoleLine[1].line, "gl hf taka lol");
+		strcpy(tp::JFWSystem::systemConsole->consoleLine[1].line, "! Reset your console to reset the randomization!");
+		strcpy(tp::JFWSystem::systemConsole->consoleLine[2].line, "! Keep in mind this is a pre-release");
 
 		unplacedItems = allItems;
 		// Set other values
@@ -98,6 +99,7 @@ namespace mod
 		// Runs once when Link picks up an item with text and is holding it towards the camera
 		resetConsoleAtSeconds = secondsSinceStart + 10;
 
+		clearConsole(20);
 		setConsole(true, 20);
 
 		// Get the console pointer
@@ -106,56 +108,67 @@ namespace mod
 		size_t lineLength = sizeof(tp::JFWSystem::ConsoleLine::line);
 
 		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
-		strcpy(console->consoleLine[1].line, "Player: TakaRikka");
 
 		snprintf(console->consoleLine[13].line, lineLength, "Original item: %02d", item);
 
-		size_t numItems = sizeof(allItems);
-		if(itemsFound < numItems)
+		if(item != 0x42 && item != 0x40 && item != 0xEE)
 		{
-			u16 randomItemIndex = 0;
+			size_t numItems = sizeof(allItems);
 
-			u32 RNG1 = 1 + *reinterpret_cast<u32*>(0x80451168);
-			u32 RNG2 = 1 + *reinterpret_cast<u32*>(0x8045116C);
-			u32 RNG3 = 1 + *reinterpret_cast<u32*>(0x80451170);
-
-			u32 RNG = 1;
-
-			if(RNG1 % 2)
+			if(itemsFound < numItems)
 			{
-				RNG = RNG2;
+				u16 randomItemIndex = 0;
+
+				u32 RNG1 = 1 + *reinterpret_cast<u32*>(0x80451168);
+				u32 RNG2 = 1 + *reinterpret_cast<u32*>(0x8045116C);
+				u32 RNG3 = 1 + *reinterpret_cast<u32*>(0x80451170);
+
+				u32 RNG = 1;
+
+				if(RNG1 % 2)
+				{
+					RNG = RNG2;
+				}
+				else
+				{
+					RNG = RNG3;
+				}
+
+				// RandomItemIndex is > 0 and < numItems
+				randomItemIndex = RNG % numItems;
+
+				u8 randomItem = unplacedItems[randomItemIndex];
+
+				while(randomItem == 0 )
+				{
+					// if the item is 0 that means it has been placed already
+					randomItemIndex++;
+					if(randomItemIndex >= numItems)
+					{
+						randomItemIndex = 0;
+					}
+					randomItem = unplacedItems[randomItemIndex];
+				}
+
+				// Set this to be found
+				unplacedItems[randomItemIndex] = 0;
+
+				itemsFound += 1;
+
+				item = randomItem;
+
+				snprintf(console->consoleLine[14].line, lineLength, "New      item: %02d", item);
 			}
 			else
 			{
-				RNG = RNG3;
+				strcpy(console->consoleLine[14].line, "All items that were to be randomized found");
 			}
-
-			// RandomItemIndex is > 0 and < numItems
-			randomItemIndex = RNG % numItems;
-
-			u8 randomItem = unplacedItems[randomItemIndex];
-
-			while(randomItem == 0)
-			{
-				// if the item is 0 that means it has been placed already
-				randomItemIndex++;
-				if(randomItemIndex >= numItems)
-				{
-					randomItemIndex = 0;
-				}
-				randomItem = unplacedItems[randomItemIndex];
-			}
-			itemsFound += 1;
-
-			item = randomItem;
-
-			snprintf(console->consoleLine[14].line, lineLength, "New      item: %02d", item);
+			snprintf(console->consoleLine[15].line, lineLength, "Items found: %02d/%02d", itemsFound, numItems);
 		}
 		else
 		{
-			strcpy(console->consoleLine[14].line, "All items that were to be randomized found");
+			strcpy(console->consoleLine[0].line, "Item rando skipped for reasons");
 		}
-		snprintf(console->consoleLine[15].line, lineLength, "Items found: %02d/%02d", itemsFound, numItems);
 		// Call original function
 		createItemForTrBox_trampoline(pos, item, unk3, unk4, unk5, unk6);
 	}

@@ -4,6 +4,7 @@
 
 extern "C"
 {
+	void clearConsole(u8 lines);
 	bool checkForButtonInput(u32 buttonCombo);
 	void setConsoleColor(u32 rgba);
 	void setConsole(bool activeFlag, u32 totalLines);
