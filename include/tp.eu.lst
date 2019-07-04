@@ -98,6 +98,12 @@
 // data
 8042EA14:env_light
 
+// c_math.o
+// data
+80453130:rng1
+80453134:rng2
+80453138:rng3
+
 // JFWSystem.o
 // data
 80453180:systemConsole

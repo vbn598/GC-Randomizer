@@ -98,6 +98,12 @@
 // data
 80426B94:env_light
 
+// c_math.o
+// data
+8044B2A8:rng1
+8044B2AC:rng2
+8044B2B0:rng3
+
 // JFWSystem.o
 // data
 8044B2F8:systemConsole

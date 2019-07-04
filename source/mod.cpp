@@ -10,6 +10,7 @@
 #include <tp/f_op_actor_mng.h>
 #include <tp/d_a_alink.h>
 #include <tp/JFWSystem.h>
+#include <tp/c_math.h>
 
 #include <math.h>
 
@@ -119,9 +120,9 @@ namespace mod
 			{
 				u16 randomItemIndex = 0;
 
-				u32 RNG1 = 1 + *reinterpret_cast<u32*>(0x80451168);
-				u32 RNG2 = 1 + *reinterpret_cast<u32*>(0x8045116C);
-				u32 RNG3 = 1 + *reinterpret_cast<u32*>(0x80451170);
+				u32 RNG1 = 1 + tp::c_math::rng1;
+				u32 RNG2 = 1 + tp::c_math::rng2;
+				u32 RNG3 = 1 + tp::c_math::rng3;
 
 				u32 RNG = 1;
 
