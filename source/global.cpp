@@ -12,6 +12,20 @@ bool checkForButtonInput(u32 buttonCombo)
 	return tp::m_Do_controller_pad::cpadInfo.wButtonInput & buttonCombo;
 }
 
+bool indexOf(u8 array[], u32 size, u8 value)
+{
+	bool b = false;
+	for(u32 i = 0; i < size; i++)
+	{
+		if(array[i] == value)
+		{
+			b = true;
+			break;
+		}
+	}
+	return b;
+}
+
 void setConsoleColor(u32 rgba)
 {
 	*reinterpret_cast<u32*>(tp::JFWSystem::systemConsole->ConsoleColor) = rgba;
