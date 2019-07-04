@@ -101,7 +101,7 @@ namespace mod
 			setConsole(false, 0);
 		}
 
-		randGetNext();
+		RandCustom += 0x9e3779b97f4a7c15;
 
 		// Call original function
 		fapGm_Execute_trampoline();

@@ -5,7 +5,7 @@
 #include <tp/m_Do_controller_pad.h>
 #include <tp/JFWSystem.h>
 
-static u64 RandCustom = 1;
+u64 RandCustom = 1;
 
 bool checkForButtonInput(u32 buttonCombo)
 {

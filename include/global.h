@@ -11,4 +11,6 @@ extern "C"
 	void setConsole(bool activeFlag, u32 totalLines);
 	u64 randGetNext();
 	void clear_DC_IC_Cache(void* ptr, u32 size);
+	
+	extern u64 RandCustom;
 }
