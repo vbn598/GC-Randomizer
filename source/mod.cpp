@@ -10,12 +10,9 @@
 #include <tp/f_op_actor_mng.h>
 #include <tp/d_a_alink.h>
 #include <tp/JFWSystem.h>
-#include <tp/c_math.h>
-
-#include <math.h>
 
 #include <cstdio>
-#include <string.h>
+#include <cstring>
 
 namespace mod
 {
@@ -47,7 +44,7 @@ namespace mod
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[2].line, "! Keep in mind this is a pre-release");
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[3].line, "! Hold [Z] to show the console");
 
-		items = allItems;
+		memcpy(items, allItems, sizeof(allItems));
 		// Set other values
 		frameCount = 0;
 		secondsSinceStart = 0;
