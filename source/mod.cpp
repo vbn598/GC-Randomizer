@@ -91,6 +91,8 @@ namespace mod
 			setConsole(false, 20);
 		}
 
+		randGetNext();
+
 		// Call original function
 		fapGm_Execute_trampoline();
 	}
@@ -120,20 +122,7 @@ namespace mod
 			{
 				u16 randomItemIndex = 0;
 
-				u32 RNG1 = 1 + tp::c_math::rng1;
-				u32 RNG2 = 1 + tp::c_math::rng2;
-				u32 RNG3 = 1 + tp::c_math::rng3;
-
-				u32 RNG = 1;
-
-				if(RNG1 % 2)
-				{
-					RNG = RNG2;
-				}
-				else
-				{
-					RNG = RNG3;
-				}
+				u64 RNG = randGetNext();
 
 				// RandomItemIndex is > 0 and < numItems
 				randomItemIndex = RNG % numItems;

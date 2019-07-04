@@ -5,6 +5,8 @@
 #include <tp/m_Do_controller_pad.h>
 #include <tp/JFWSystem.h>
 
+static u64 RandCustom = 1;
+
 bool checkForButtonInput(u32 buttonCombo)
 {
 	return tp::m_Do_controller_pad::cpadInfo.wButtonInput & buttonCombo;
@@ -32,6 +34,14 @@ void clearConsole(u8 lines)
 	{
 		tp::JFWSystem::systemConsole->consoleLine[line].line[0] = '\0';
 	}
+}
+
+u64 randGetNext()
+{
+	u64 z = (RandCustom += 0x9e3779b97f4a7c15);
+	z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9;
+	z = (z ^ (z >> 27)) * 0x94d049bb133111eb;
+	return z ^ (z >> 31);
 }
 
 void clear_DC_IC_Cache(void* ptr, u32 size)
