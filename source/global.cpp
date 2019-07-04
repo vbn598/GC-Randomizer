@@ -42,9 +42,9 @@ void setConsole(bool activeFlag, u32 totalLines)
 	}
 }
 
-void clearConsole(u8 lines)
+void clearConsole(u32 lines)
 {
-	for(u8 line = 0; line < lines; line++)
+	for(u32 line = 0; line < lines; line++)
 	{
 		tp::JFWSystem::systemConsole->consoleLine[line].line[0] = '\0';
 	}
