@@ -15,6 +15,8 @@ namespace mod
 
 			u16 itemsFound;
 
+			u8 lastItem;
+
 			u8 frameCount;
 			u32 secondsSinceStart;			
 			u32 resetConsoleAtSeconds;

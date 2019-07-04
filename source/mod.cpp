@@ -45,8 +45,9 @@ namespace mod
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[1].line, "! Reset your console to reset the randomization!");
 		strcpy(tp::JFWSystem::systemConsole->consoleLine[2].line, "! Keep in mind this is a pre-release");
+		strcpy(tp::JFWSystem::systemConsole->consoleLine[3].line, "! Hold [Z] to show the console");
 
-		unplacedItems = allItems;
+		items = allItems;
 		// Set other values
 		frameCount = 0;
 		secondsSinceStart = 0;
@@ -88,7 +89,16 @@ namespace mod
 
 		if(secondsSinceStart == resetConsoleAtSeconds)
 		{
-			setConsole(false, 20);
+			setConsole(false, 0);
+		}
+
+		if(checkForButtonInput(PAD_Z))
+		{
+			setConsole(true, 0);
+		}
+		else if(secondsSinceStart > resetConsoleAtSeconds)
+		{
+			setConsole(false, 0);
 		}
 
 		randGetNext();
@@ -109,15 +119,14 @@ namespace mod
 		tp::JFWSystem::SystemConsole* console = tp::JFWSystem::systemConsole;
 
 		size_t lineLength = sizeof(tp::JFWSystem::ConsoleLine::line);
+		size_t numItems = sizeof(allItems);
 
 		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
 
 		snprintf(console->consoleLine[13].line, lineLength, "Original item: %02d", item);
 
-		if(item != 0x42 && item != 0x40 && item != 0xEE)
+		if(indexOf(items, numItems, item))
 		{
-			size_t numItems = sizeof(allItems);
-
 			if(itemsFound < numItems)
 			{
 				u16 randomItemIndex = 0;
@@ -127,9 +136,9 @@ namespace mod
 				// RandomItemIndex is > 0 and < numItems
 				randomItemIndex = RNG % numItems;
 
-				u8 randomItem = unplacedItems[randomItemIndex];
+				u8 randomItem = items[randomItemIndex];
 
-				while(randomItem == 0 )
+				while(randomItem == 0)
 				{
 					// if the item is 0 that means it has been placed already
 					randomItemIndex++;
@@ -137,16 +146,16 @@ namespace mod
 					{
 						randomItemIndex = 0;
 					}
-					randomItem = unplacedItems[randomItemIndex];
+					randomItem = items[randomItemIndex];
 				}
 
 				// Set this to be found
-				unplacedItems[randomItemIndex] = 0;
+				items[randomItemIndex] = 0;
 
 				itemsFound += 1;
 
 				item = randomItem;
-
+				lastItem = item;
 				snprintf(console->consoleLine[14].line, lineLength, "New      item: %02d", item);
 			}
 			else
@@ -157,7 +166,7 @@ namespace mod
 		}
 		else
 		{
-			strcpy(console->consoleLine[0].line, "Item rando skipped for reasons");
+			strcpy(console->consoleLine[0].line, "Item skipped (not in pool)");
 		}
 		// Call original function
 		createItemForTrBox_trampoline(pos, item, unk3, unk4, unk5, unk6);
