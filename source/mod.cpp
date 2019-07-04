@@ -39,10 +39,13 @@ namespace mod
 
 		itemsFound = 0;
 
-		strcpy(tp::JFWSystem::systemConsole->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
-		strcpy(tp::JFWSystem::systemConsole->consoleLine[1].line, "! Reset your console to reset the randomization!");
-		strcpy(tp::JFWSystem::systemConsole->consoleLine[2].line, "! Keep in mind this is a pre-release");
-		strcpy(tp::JFWSystem::systemConsole->consoleLine[3].line, "! Hold [Z] to show the console");
+		// Get the console pointer
+		tp::JFWSystem::SystemConsole* console = tp::JFWSystem::systemConsole;
+
+		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
+		strcpy(console->consoleLine[1].line, "! Reset your console to reset the randomization!");
+		strcpy(console->consoleLine[2].line, "! Keep in mind this is a pre-release");
+		strcpy(console->consoleLine[3].line, "! Hold [Z] to show the console");
 
 		memcpy(items, allItems, sizeof(allItems));
 		// Set other values
