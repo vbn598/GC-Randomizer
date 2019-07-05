@@ -1,11 +1,12 @@
 #include "mod.h"
-#include "patch.h"
 #include "defines.h"
-#include "global.h"
+#include "systemconsole.h"
+#include "patch.h"
 #include "items.h"
+#include "controller.h"
+#include "tools.h"
 
 #include <gc/buttons.h>
-
 #include <tp/f_ap_game.h>
 #include <tp/f_op_actor_mng.h>
 #include <tp/d_a_alink.h>
@@ -35,8 +36,8 @@ namespace mod
 		assemblyOverwrites();
 
 		// Set the initial console color
-		setConsoleColor(0xA000A050);
-		setConsole(true, 20);
+		systemconsole::setConsoleColor(0xA000A050);
+		systemconsole::setConsole(true, 20);
 
 		resetConsoleAtSeconds = 15;
 
@@ -54,7 +55,6 @@ namespace mod
 		// Set other values
 		frameCount = 0;
 		secondsSinceStart = 0;
-
 
 		fapGm_Execute_trampoline = patch::hookFunction(tp::f_ap_game::fapGm_Execute,
 			[]()
@@ -92,19 +92,19 @@ namespace mod
 
 		if(secondsSinceStart == resetConsoleAtSeconds)
 		{
-			setConsole(false, 0);
+			systemconsole::setConsole(false, 0);
 		}
 
-		if(checkForButtonInput(PAD_Z))
+		if(controller::checkForButtonInput(PAD_Z))
 		{
-			setConsole(true, 0);
+			systemconsole::setConsole(true, 0);
 		}
 		else if(secondsSinceStart > resetConsoleAtSeconds)
 		{
-			setConsole(false, 0);
+			systemconsole::setConsole(false, 0);
 		}
 
-		RandCustom += 0x9e3779b97f4a7c15;
+		tools::advanceRand();
 
 		// Call original function
 		fapGm_Execute_trampoline();
@@ -115,26 +115,26 @@ namespace mod
 		// Runs once when Link picks up an item with text and is holding it towards the camera
 		resetConsoleAtSeconds = secondsSinceStart + 10;
 
-		clearConsole(20);
-		setConsole(true, 20);
+		systemconsole::clearConsole(20);
+		systemconsole::setConsole(true, 20);
 
 		// Get the console pointer
 		tp::JFWSystem::SystemConsole* console = tp::JFWSystem::systemConsole;
 
-		size_t lineLength = sizeof(tp::JFWSystem::ConsoleLine::line);
+		size_t maxLineLength = sizeof(tp::JFWSystem::ConsoleLine::line);
 		size_t numItems = sizeof(allItems);
 
 		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
 
-		snprintf(console->consoleLine[13].line, lineLength, "Original item: %02d", item);
+		snprintf(console->consoleLine[13].line, maxLineLength, "Original item: %02d", item);
 
-		if(indexOf(items, numItems, item))
+		if(tools::indexOf(items, numItems, item))
 		{
 			if(itemsFound < numItems)
 			{
 				u16 randomItemIndex = 0;
 
-				u64 RNG = randGetNext();
+				u64 RNG = tools::randGetNext();
 
 				// RandomItemIndex is > 0 and < numItems
 				randomItemIndex = RNG % numItems;
@@ -159,13 +159,13 @@ namespace mod
 
 				item = randomItem;
 				lastItem = item;
-				snprintf(console->consoleLine[14].line, lineLength, "New      item: %02d", item);
+				snprintf(console->consoleLine[14].line, maxLineLength, "New      item: %02d", item);
 			}
 			else
 			{
 				strcpy(console->consoleLine[14].line, "All items that were to be randomized found");
 			}
-			snprintf(console->consoleLine[15].line, lineLength, "Items found: %02d/%02d", itemsFound, numItems);
+			snprintf(console->consoleLine[15].line, maxLineLength, "Items found: %02d/%02d", itemsFound, numItems);
 		}
 		else
 		{
