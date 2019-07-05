@@ -12,6 +12,8 @@ namespace mod
 			
 		private:
 			void run();
+			
+			void assemblyOverwrites();
 
 			u16 itemsFound;
 
