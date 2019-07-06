@@ -1,22 +1,39 @@
 #include "tools.h"
 #include "defines.h"
 
+#include <tp/d_com_inf_game.h>
+#include <tp/d_save.h>
+
 namespace mod::tools
 {
 	u64 randCustom = 1;
 
 	bool indexOf(u8 array[], u32 size, u8 value)
 	{
-		bool b = false;
 		for(u32 i = 0; i < size; i++)
 		{
 			if(array[i] == value)
 			{
-				b = true;
-				break;
+				return true;
 			}
 		}
-		return b;
+		return false;
+	}
+
+	bool checkIfHaveItem(u8 item)
+	{
+		tp::d_com_inf_game::ItemWheel* ItemWheel = &tp::d_com_inf_game::dComIfG_gameInfo.itemWheel;
+		u32 Size = sizeof(tp::d_com_inf_game::ItemWheel);
+
+		for (u32 i = 0; i < Size; i++)
+		{
+			u8 itemInSlot = d_save::d_save_getItem(ItemWheel, static_cast<s32>(i), false);
+			if (itemInSlot == item)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	void advanceRand()

@@ -10,6 +10,9 @@
 // f_op_actor_mng.o
 8001BC74:createItemForTrBoxDemo
 
+// d_save.o
+80033030:d_save_getItem
+
 // d_map_path_dmap.o
 8003EE5C:getMapPlayerPos
 

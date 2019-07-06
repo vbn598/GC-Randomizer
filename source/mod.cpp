@@ -157,6 +157,35 @@ namespace mod
 
 				itemsFound += 1;
 
+				// Check for sequential items
+				switch (randomItem)
+				{
+					case 0x44:
+					{
+						// Check if the player already has a Clawshot
+						if (tools::checkIfHaveItem(0x44))
+						{
+							// The player already has a Clawshot, so give them the Double Clawshots
+							randomItem = 0x47;
+						}
+						break;
+					}
+					case 0x47:
+					{
+						// Check if the player already has a Clawshot
+						if (!tools::checkIfHaveItem(0x44))
+						{
+							// The player does not have a Clawshot, so give them the first one
+							randomItem = 0x44;
+						}
+						break;
+					}
+					default:
+					{
+						break;
+					}
+				}
+
 				item = randomItem;
 				lastItem = item;
 				snprintf(console->consoleLine[14].line, maxLineLength, "New      item: %02d", item);
