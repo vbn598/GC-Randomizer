@@ -2,12 +2,12 @@
 
 #include "defines.h"
 
-namespace mod::systemconsole
+namespace mod::system_console
 {
 	extern "C"
 	{
-		void setConsoleColor(u32 rgba);
-		void setConsole(bool activeFlag, u32 totalLines);
-		void clearConsole(u32 totalLines);
+		void setBackgroundColor(u32 rgba);
+		void setState(bool activeFlag, u32 totalLines);
+		void clearLines(u32 totalLines);
 	}
 }

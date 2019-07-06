@@ -1,12 +1,11 @@
 #include "mod.h"
 #include "defines.h"
-#include "systemconsole.h"
+#include "systemConsole.h"
 #include "patch.h"
 #include "items.h"
 #include "controller.h"
 #include "tools.h"
 
-#include <gc/buttons.h>
 #include <tp/f_ap_game.h>
 #include <tp/f_op_actor_mng.h>
 #include <tp/d_a_alink.h>
@@ -36,15 +35,15 @@ namespace mod
 		assemblyOverwrites();
 
 		// Set the initial console color
-		systemconsole::setConsoleColor(0xA000A050);
-		systemconsole::setConsole(true, 20);
+		system_console::setBackgroundColor(0xA000A050);
+		system_console::setState(true, 20);
 
 		resetConsoleAtSeconds = 15;
 
 		itemsFound = 0;
 
 		// Get the console pointer
-		tp::JFWSystem::SystemConsole* console = tp::JFWSystem::systemConsole;
+		tp::jfw_system::SystemConsole* console = sysConsolePtr;
 
 		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");
 		strcpy(console->consoleLine[1].line, "! Reset your console to reset the randomization!");
@@ -52,6 +51,7 @@ namespace mod
 		strcpy(console->consoleLine[3].line, "! Hold [Z] to show the console");
 
 		memcpy(items, allItems, sizeof(allItems));
+		
 		// Set other values
 		frameCount = 0;
 		secondsSinceStart = 0;
@@ -92,16 +92,16 @@ namespace mod
 
 		if(secondsSinceStart == resetConsoleAtSeconds)
 		{
-			systemconsole::setConsole(false, 0);
+			system_console::setState(false, 0);
 		}
 
-		if(controller::checkForButtonInput(PAD_Z))
+		if(controller::checkForButtonInput(controller::Button_Z))
 		{
-			systemconsole::setConsole(true, 0);
+			system_console::setState(true, 0);
 		}
 		else if(secondsSinceStart > resetConsoleAtSeconds)
 		{
-			systemconsole::setConsole(false, 0);
+			system_console::setState(false, 0);
 		}
 
 		tools::advanceRand();
@@ -115,13 +115,13 @@ namespace mod
 		// Runs once when Link picks up an item with text and is holding it towards the camera
 		resetConsoleAtSeconds = secondsSinceStart + 10;
 
-		systemconsole::clearConsole(20);
-		systemconsole::setConsole(true, 20);
+		system_console::clearLines(20);
+		system_console::setState(true, 20);
 
 		// Get the console pointer
-		tp::JFWSystem::SystemConsole* console = tp::JFWSystem::systemConsole;
+		tp::jfw_system::SystemConsole* console = sysConsolePtr;
 
-		size_t maxLineLength = sizeof(tp::JFWSystem::ConsoleLine::line);
+		size_t maxLineLength = sizeof(tp::jfw_system::ConsoleLine::line);
 		size_t numItems = sizeof(allItems);
 
 		strcpy(console->consoleLine[0].line, "TP Randomizer 0.1b by AECX");

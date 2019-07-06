@@ -1,19 +1,19 @@
-#include "systemconsole.h"
+#include "systemConsole.h"
 #include "defines.h"
 
 #include <tp/JFWSystem.h>
 
-namespace mod::systemconsole
+namespace mod::system_console
 {
-	void setConsoleColor(u32 rgba)
+	void setBackgroundColor(u32 rgba)
 	{
-		u32* ConsoleColor = reinterpret_cast<u32*>(tp::JFWSystem::systemConsole->consoleColor);
+		u32* ConsoleColor = reinterpret_cast<u32*>(sysConsolePtr->consoleColor);
 		*ConsoleColor = rgba;
 	}
 
-	void setConsole(bool activeFlag, u32 totalLines)
+	void setState(bool activeFlag, u32 totalLines)
 	{
-		tp::JFWSystem::SystemConsole* Console = tp::JFWSystem::systemConsole;
+		tp::jfw_system::SystemConsole* Console = sysConsolePtr;
 		Console->consoleEnabled = activeFlag;
 
 		for (u32 i = 0; i < totalLines; i++)
@@ -22,11 +22,11 @@ namespace mod::systemconsole
 		}
 	}
 
-	void clearConsole(u32 totalLines)
+	void clearLines(u32 totalLines)
 	{
 		for(u32 i = 0; i < totalLines; i++)
 		{
-			tp::JFWSystem::systemConsole->consoleLine[i].line[0] = '\0';
+			sysConsolePtr->consoleLine[i].line[0] = '\0';
 		}
 	}
 }
