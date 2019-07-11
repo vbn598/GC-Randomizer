@@ -7,7 +7,9 @@ namespace tp::d_com_inf_game
 	// Should try to fill in the variables at some point
 	struct ScratchPad
 	{
-		u8 wQuestLogData[0x958];
+		u8 wQuestLogData[0x7F0];
+		u8 eventBits[0x150]; // Bitfield
+		u8 miniGameBits[0x18]; // Bitfield
 	} __attribute__((__packed__));
 	
 	// Should try to fill in the missing variables at some point
