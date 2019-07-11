@@ -16,6 +16,9 @@
 // d_map_path_dmap.o
 8003EE5C:getMapPlayerPos
 
+// d_item.o
+80097EE0:checkItemGet
+
 // d_a_alink.h
 8011A6FC:checkTreasureRupeeReturn
 
