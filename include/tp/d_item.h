@@ -6,6 +6,6 @@ namespace tp::d_item
 {
 	extern "C"
 	{
-		bool checkItemGet(u8 item, bool defaultValue);
+		s32 checkItemGet(u8 item, s32 defaultValue);
 	}
 }
