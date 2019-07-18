@@ -19,8 +19,11 @@
 // d_item.o
 80098010:checkItemGet
 
-// d_a_alink.h
+// d_a_alink.o
+// text
 8011A908:checkTreasureRupeeReturn
+// data
+8039038C:ladderVars
 
 // JKRExpHeap.o
 802CFF28:do_alloc_JKRExpHeap

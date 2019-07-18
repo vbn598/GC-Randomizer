@@ -24,8 +24,8 @@ namespace mod
 
 	void Mod::init()
 	{
-		// Perform any necessary assembly overwrites
-		assemblyOverwrites();
+		// Perform any necessary memory overwrites
+		memoryOverwrites();
 
 		// Set the initial console color
 		system_console::setBackgroundColor(0x00A0A0A0);
@@ -70,7 +70,7 @@ namespace mod
 		return createItemForTrBox_trampoline(pos, item, unk3, unk4, unk5, unk6);
 	}
 	
-	void Mod::assemblyOverwrites()
+	void Mod::memoryOverwrites()
 	{
 		// Get the addresses to overwrite
 		#ifdef TP_US
@@ -88,5 +88,15 @@ namespace mod
 
 		// Enable the crash screen
 		*enableCrashScreen = 0x48000014; // b 0x14
+
+		// Adjust Link's climbing speeds
+		tp::d_a_alink::LadderVars* LadderVars = &tp::d_a_alink::ladderVars;
+		LadderVars->ladderClimbInitSpeed 			= 1.625;
+		LadderVars->ladderReachTopClimbUpSpeed 		= 1.625;
+		LadderVars->ladderTopStartClimbDownSpeed 	= 1.625;
+		LadderVars->ladderBottomGetOffSpeed 		= 1.75;
+		LadderVars->ladderClimbSpeed 				= 1.625;
+		LadderVars->wallClimbHorizontalSpeed 		= 1.5;
+		LadderVars->wallClimbVerticalSpeed 			= 1.875;
 	}
 }
