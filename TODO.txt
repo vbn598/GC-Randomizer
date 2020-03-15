@@ -1,0 +1,284 @@
+check when goron at castletown starts selling hylian sheild     not available if you already have one, never use it
+
+check if bow shooting mini-game PoH gets mixed with cliff bomb arrows PoH   fixed
+
+check when bomblings come 	after lakebed
+
+check poe max range ~1400
+
+check clawshot range for PoH ~2000
+
+figure out wich event is called when fish caught (for bottle and sinking lure)
+
+figure out how to check if link has an items (for progessive items)
+
+Find 8 missing PoH
+1- bow shooting F_SP109->0 -900.000000 0.780221 6600.000000
+2- castle town 1000r old man F_SP116->2 -4142.703125 0.000000 -569.375000
+3- fishing hole F_SP127->0 -2678.128906 -167.094162 2246.794186
+4- goron eldin field water F_SP121->0 -25148.583984 -200.000000 9814.881836
+5- lake hylia flight mini-game F_SP126->0 3618.216797 232.476608 541.905518
+6- desert bulblin camp steak F_SP118->1 4708.924805 260.000000 -3120.967529
+7- snowpeack surf wife F_SP114->1 -71795.539062 -54450.000000 56396.738281
+8- cucoo mini-game hidden village F_SP128->0 2200.000000 104.574730 -1200.000000
+
+Get values for Coro Bottle 0x9d -13659.433594 -0.454284 -14367.083008
+
+Get values for Jovani Bottle 0x75 4250.363281 134.492020 1813.639648
+
+Get values for Fishing Hole Bottle	not randomizable yet
+
+
+Get values goron shop night kakariko F_SP109->0 -1350.000000 0.000000 -3070.000000
+
+Get values goron shop castle red potion R_SP160->4 0x61 -685.106323 100.000000 3819.986572
+
+Get values goron shop castle lantern oil R_SP160->4 0x66 -801.576233 1000.000000 4318.003906
+
+Get values goron shop castle arrows(30) F_SP116->0 0x10 -169.985306 1120.000000 3406.518799
+
+Get values hot spring water castle F_SP116->3 0x6d 511.206268 -200.000000 7069.889160
+
+Get values shop city in the sky D_MN07->16 -187.485748 140.000000 -327.944885
+
+Get values fairy tear cave of ordeals D_SB01->49 0x73 -7.837189 -61250.000000 -3557.497070
+
+
+get values snowpeak map D_MN11->1 0x23 293.920288 0.000000 -337.167480
+
+
+Get values for Jovani 200r 0x07 4250.363281 134.492020 1813.639648
+
+Get values for Jovani cat 200r 0x07 4512.647461 -75.000000 2534.464600
+
+Get values for Big Wallet R_SP160->3 0x35 -123.609940 40.000000 305.168640
+
+Get values for Giant wallet R_SP160->3 0x36 -123.609940 40.000000 305.168640
+
+Get values for 50r bug reward (11 times) R_SP160->3 0x05 -123.609940 40.000000 305.168640
+
+Get values for 100r bug reward  (11 times) R_SP160->3 0x06 -123.609940 40.000000 305.168640
+
+
+
+get values empty book R_SP128->0 0xe9 -532.266479 1.500000 -343.810791
+
+get values book letter faron F_SP108->8 0xea -17500.000000 -310.000000 -20950.000000
+
+get values book letter eldin gorge F_SP121->3 0xea -10195.000000 -4760.000000 39363.000000
+
+get values book letter eldin bridge F_SP121->0 0xea 33650.000000 -80.000000 -35970.000000
+
+get values book letter west castle F_SP122->08 0xea -81950.000000 -1300.000000 20650.000000
+
+get values book letter hylia bridge F_SP121->13 0xea -94664.000000 -5040.000000 18311.000000
+
+get values book letter desert F_SP124->0 0xea 15120.000000 952.169983 59670.000000
+
+
+
+Get values Vessel of light Faron 0xa1 -19193.314453 250.000000 -7302.788086
+
+Get values Vessel of light Eldin 0xa2 1050.000000 300.000000 12500.000000
+
+Get values Vessel of light Lanayru 0xa3 2.677870 753.708252 -620.950562
+
+
+Get values Bee Larva 0x9e
+
+
+
+Get values Refill Lantern 0x6f
+
+
+Get Values Coro Key 0xfe -13659.433594 -0.454284 -14367.083008
+
+
+get values gate keys F_SP123->13 0f3 -93334.218750 -5725.979980 44504.023438
+
+
+Get values for Key Shard 1 0xf9 -15375.557617 -636.630005 1595.673462
+
+Get values for Key Shard 2 0xfa 13007.017578 2924.530029 -17705.732422
+
+Get values for Key Shard 3
+
+Get values for Big Key 0xfd 13055.647461 2400.500000 -1660.316895
+
+
+get values male bettle 0xc0 -50212.730469 -8840.560547 86352.757812
+
+get values female bettle 0xc1 -38651.949219 -9189.901367 73707.671875
+
+
+get values male pill bug 0xca -9730.929688 -7200.000000 57526.199219
+
+get values female pill bug 0xcb 562.488159 -6092.589844 61677.734375
+
+get values male ant 0xd4 17085.654297 557.072510 -850.370605
+
+get values female ant 0xd5 205.938171 17.797655 4.593423
+
+get values male grasshopper 0xc6 19503.787109 662.713684 13563.345703
+
+get values female grasshopper 0xc7 -10765.343750 80.466759 -9151.101562
+
+get values male phasmid 0xc8 34607.441406 -260.000000 -14273.162109
+
+get values female phasmid 0xc9 37897.406250 -260.000000 -40525.894531
+
+
+get values male mantis 0xcc -93754.703125 -5925.377441 31642.708984
+
+get values female mantis 0xcd -88147.609375 -6854.451660 58998.777344
+
+get values male dragonfly 0xd2 3540.047363 -5150.441895 15789.274414
+
+get values female dragonfly 0xd3 6013.379395 445.474884 -224.899765
+
+get values male butterfly 0xc2 -75074.406250 -384.115967 16053.256836
+
+get values female butterfly 0xc3 -78787.265625 -1472.352661 2016.588013
+
+get values male stag beetle 0xc4 -62781.214844 -1350.003052 -33241.687500
+
+get values female stag beetle 0xc5 -48976.765625 -677.295044 -50834.683594
+
+get values male ladybug 0xce -45085.273438 6042.771484 29910.453125
+
+get values female ladybug 0xcf -54377.070312 -5460.576660 27647.970703
+
+
+get values male dayfly 0xd6 28767.958984 524.933899 58604.546875
+
+get values female dayfly 0xd7 11790.147461 340.034332 55725.250000
+
+
+get values male snail 0xd0 1304.371826 1005.000000 7306.179688
+
+get values female snail 0xd1 521.038208 1000.000000 5867.415527
+
+
+https://www.zeldadungeon.net/Zelda11-twilight-princess-poe-souls.php#r
+
+get values poe soul #1 D_MN10->2 0xe0 105.801384 -19.549999 -741.391968
+
+get values poe soul #2 D_MN10->3 0xe0 3606.844482 150.030182 -5323.249512
+
+get values poe soul #3 D_MN10->5 0xe0 5712.277344 1050.019775 4526.544922
+
+get values poe soul #4 D_MN10->8 0xe0 -4197.771973 1040.154663 4983.674805
+
+get values poe soul #5 R_SP160->5 0xe0 4186.364746 -75.000000 2795.808350
+
+get values poe soul #6 D_SB01->16 0xe0 126.849854 -20000.000000 -337.206903
+
+get values poe soul #7 D_SB01->32 0xe0 231.875824 -40000.000000 -216.2944296
+
+get values poe soul #8 D_SB01->43 0xe0 -4560.734375 -53750.000000 -825.646851
+
+get values poe soul #9 D_MN07->12 0xe0 -12660.987305 1982.199951 -7632.476074
+
+get values poe soul #10 D_MN07->13 0xe0 3916.892090 4496.779785 -12149.609375
+
+get values poe soul #11 F_SP110->0 0xe0 -2502.529785 -1533.660522 18041.601562
+
+get values poe soul #12 F_SP108->11 0xe0 -25786.427734 300.000000 -20456.810547
+
+get values poe soul #13 F_SP124->0 0xe0 66240.039062 143.258804 56904.339844
+
+get values poe soul #14 F_SP124->0 0xe0 -816.907959 2496.226562 57933.289062
+
+get values poe soul #15 F_SP124->0 0xe0 26747.324219 -46.507732 26175.406250
+
+get values poe soul #16 D_SB07->2 0xe0 -1026.819824 1.152117 -161.420013
+
+get values poe soul #17 D_SB07->2 0xe0 -286.849121 3.514773 -895.548218
+
+get values poe soul #18 F_SP124->0 0xe0 -2024.554443 16.013172 11583.281250
+
+get values poe soul #19 F_SP118->2 0xe0 1812.931274 0.000000 1155.415161
+
+get values poe soul #20 F_SP118->3 0ex0 283.265228 840.000000 -12366.407227
+
+get values poe soul #21 F_SP111->0 0xe0 12836.060547 100.000000 178.608246
+
+get values poe soul #22 F_SP111->0 0xe0 14444.615234 256.835815 -527.642578
+
+get values poe soul #23 F_SP128->0 0xe0 1683.054077 480.000000 -6715.406250
+
+get values poe soul #24 F_SP122->8 0xe0 -81042.460938 -1650.079956 21720.513672
+
+get values poe soul #25 F_SP122->17 0xe0 -42291.773438 -1400.000000 10844.620117
+
+get values poe soul #26 F_SP121->3 0xe0 -10858.849609 -5700.000000 55509.773438
+
+get values poe soul #27 D_SB02->0 0xe0 4567.875977 5027.688477 -5207.911621
+
+get values poe soul #28 F_SP121->6 0xe0 -45153.691406 -8909.261719 74205.156250 
+
+get values poe soul #29 F_SP121->10 0xe0 -45192.148438 -2474.139893 -32984.613281
+
+get values poe soul #30 D_SB05->0 0xe0 269.485474 22.380699 -981.643372
+
+get values poe soul #31 D_SB05->0 0xe0 -236.254684 150.000000 -1036.175781
+
+get values poe soul #32 F_SP122->16 0xe0 -53146.578125 -5153.850098 25666.673828
+
+get values poe soul #33 F_SP121->13 0xe0 -81177.609375 -6000.000000 65960.148438
+
+get values poe soul #34 F_SP109->0 0xe0 3372.341553 2300.000000 -3018.808594
+
+get values poe soul #35 F_SP109->0 0xe0 -1487.586548 3848.365234 -5915.137207
+
+get values poe soul #36 F_SP115->0 0xe0 -74531.953125 -18336.878906 47025.640625
+
+get values poe soul #37 F_SP115->0 0xe0 -96335.820312 -17510.320312 62149.574219
+
+get values poe soul #38 F_SP115->0 0xe0 -115949.156250 -15840.000000 59894.671875
+
+get values poe soul #39 F_SP115->0 0xe0 -104251.976562 -18469.791016 42262.726562
+
+get values poe soul #40 F_SP115->0 0xe0 -115114.968750 -14096.000000 25330.574219
+
+get values poe soul #41 D_SB03->0 0xe0 8918.118164 355.380005 -6922.565430
+
+get values poe soul #42 D_SB03->0 0xe0 801.443970 -4197.580078 -20497.589844
+
+get values poe soul #43 D_SB03->0 0xe0 6740.693848 -5139.174805 -10953.290039
+
+get values poe soul #44 F_SP117->3 0xe0 -5483.465332 500.000000 5302.014648
+
+get values poe soul #45 F_SP117->1 0xe0 1214.411987 1639.093384 -3631.436035
+
+get values poe soul #46 F_SP117->3 0xe0 -21789.335936 2200.000000 10000.409180
+
+get values poe soul #47 F_SP114->0 0xe0 843.887695 -9361.725586 -21468.560547
+
+get values poe soul #48 F_SP114->0 0xe0 7834.021484 -8356.457031 -18110.230469
+
+get values poe soul #49 F_SP114->0 0xe0 -4954.811035 -4714.479980 -18838.253906
+
+get values poe soul #50 F_SP114->2 0xe0 -6137.537598 -1800.000000 -10043.368164
+
+get values poe soul #51 F_SP114->1 0xe0 -69507.492188 -524229.000000 62508.425781
+
+get values poe soul #52 D_MN11->0 0xe0 -238.949356 -2.310000 2920.424072
+
+get values poe soul #53 D_MN11->0 0xe0 533.658569 -84.440002 5910.784180
+
+get values poe soul #54 D_MN11->6 0xe0 4784.004395 950.000000 331.876648
+
+get values poe soul #55 D_MN06->2 0xe0 -3295.982178 2750.000000 11.354874
+
+get values poe soul #56 D_MN06->5 0xe0 1861.281128 7400.000000 -358.31518
+
+get values poe soul #57 F_SP117->2 0xe0 -1086.470947 925.000000 6306.895020
+
+get values poe soul #58 F_SP126->0 0xe0 942.983948 817.438049 3387.270996
+
+get values poe soul #59 F_SP113->0 0xe0 3444.790039 -4658.747559 11720.103516 
+
+get values poe soul #60 F_SP113->0 0xe0 297.160065 -4608.964844 7384.047852
+
+

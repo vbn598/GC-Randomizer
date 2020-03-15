@@ -1,0 +1,40 @@
+2: PoH #72 Sacred Bombs
+1: 100r #73 Lanayru2 Clawshot
+
+5: 100r #89 Lake2 -
+
+5: 100r #102 Lake1 Boots
+
+4: 50r #105 Lanyru4 Lantern
+
+4: 100r #108 Lanyru6 Bomb-Arrows Clawshot
+
+2: 20r #111 Faron1 -
+2: 10r #112 Faron1 -
+2: 20r #113 Faron1 -
+
+5: 100r #120 Lanyru1 -
+1: 50r #121 Eldin2 lantern
+1: 50r #122 Eldin2 lantern
+5: 50r #123 Eldin3 -
+4: 100r #124 Gerudo1 -
+
+3: 100r #132 Gerudo3 Bombs, Clawshot, Lantern
+
+2: 5b #163 Eldin4 Spinner
+2: 5b #164 Eldin4 Spinner
+2: PoH #165 Eldin4 Spinner, Bombs
+
+1: 50r #167 Ordon Lantern
+
+4: 100r #189 Snowpeak1 BaC
+
+Empty:
+Gerudo2
+Eldin1
+Faron2
+Lanayru3
+Lanayru5
+Snowpeak2
+
+https://strategywiki.org/wiki/The_Legend_of_Zelda:_Twilight_Princess/Hidden_Grottos

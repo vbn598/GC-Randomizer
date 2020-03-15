@@ -13,10 +13,10 @@ namespace mod
 
 		public:
 			// Conditions used by the generator to determine wether a check is already reachable
-			u16 currentPlayerConditions;
+			u32 currentPlayerConditions;
 
 			// Layer 0 conditions, basically
-			u16 startConditions = 0b1010000000000001; // AND, IB, slingshot, small key (<-locked anyway)
+			u32 startConditions = 0b100000000000000100010; // AND, small key, master sword (<-locked anyway)
 
 			// Debug values
 			char lastSourceInfo[50];
@@ -28,6 +28,17 @@ namespace mod
 			u16 totalChecks;
 			u16 layerCheckCount;
 			u16 empty;
+			float rangeX = 400.0f;
+			float rangeY = 200.0f;
+			float rangeZ = 400.0f;
+			
+			u8 swordState = 0;
+			u8 bowState = 0;
+			u8 clawshotState = 0;
+			u8 walletState = 0;
+			u8 bookState = 0;
+			
+			u8 isPorgessiveEnabled = 1;
 
 		public:
 			/**

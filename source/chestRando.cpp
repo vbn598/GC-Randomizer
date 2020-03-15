@@ -57,8 +57,38 @@ namespace mod
 				// Free slot
 				if(destCheck->destLayer != 0xFF)
 				{
-					// Layer check
-					sourceCheck = findSource(destCheck->destLayer, (destCheck->destLayer - 1), destCheck);
+					// Layer check	
+					if (isPorgessiveEnabled == 0)
+					{
+						if(destCheck->itemID == items::Item::Ordon_Sword)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x1, destCheck);//to prevent woodensword from being overwritten before losing it			
+						}
+						else if(destCheck->itemID == items::Item::Clawshots)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x7, destCheck);//to prevent Clawshots from being overwritten by Clawshot
+						}
+						else if(destCheck->itemID == items::Item::Big_Quiver)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x4, destCheck);//to prevent bow from being overwritten
+						}
+						else if(destCheck->itemID == items::Item::Giant_Quiver)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x8, destCheck);//to prevent bow from being overwritten
+						}
+						else if(destCheck->itemID == items::Item::Giant_Wallet)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x7, destCheck);//to prevent overwriting giant wallet with big wallet
+						}
+						else
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x0, destCheck);
+						}
+					}
+					else
+					{
+						sourceCheck = findSource(destCheck->destLayer, 0x0, destCheck);
+					}
 					placeCheck(sourceCheck, destCheck);
 					layerCheckCount++;
 				}
@@ -195,13 +225,40 @@ namespace mod
 
 		switch(check->itemID)
 		{
-			case items::Item::Iron_Boots:
+			/*case items::Item::Iron_Boots:
 				result = true;
-			break;
+			break;*/
 
 			case items::Item::Fishing_Rod:
 				result = true;
 			break;
+						
+			case items::Item::Master_Sword:
+				result = true;
+			break;
+			
+			case items::Item::Ancient_Sky_Book_empty:
+				if (isPorgessiveEnabled == 0)
+				{
+					result = true;
+				}
+			break;
+			
+			case items::Item::Ancient_Sky_Book_partly_filled:
+				if (isPorgessiveEnabled == 0)
+				{
+					result = true;
+				}
+			break;
+						
+			case items::Item::Ancient_Sky_Book_completed:
+				if (isPorgessiveEnabled == 0)
+				{
+					result = true;
+				}
+			break;
+			
+			
 		}
 
 		return result;
@@ -219,30 +276,224 @@ namespace mod
 
 			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage))
 			{
-				// Correct stage
-				if(tools::fCompare(sourceCheck->position[0], pos[0]) < 400.0f)
+				if (isPorgessiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
 				{
-					if(tools::fCompare(sourceCheck->position[1], pos[1]) < 200.0f)
-					{
-						if(tools::fCompare(sourceCheck->position[2], pos[2]) < 400.0f)
+					item = items::Item::Ancient_Sky_Book_partly_filled;
+				}
+				// Correct stage
+				if(sourceCheck->itemID == item)
+				{
+					bool isOk = false;
+					
+					if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Gear
+					|| sourceCheck->type == item::ItemType::Equip || sourceCheck->type == item::ItemType::Dungeon || sourceCheck->type == item::ItemType::Story)
+					{//bugs, gear, equipment, story items have unique itemids so position doesn't matter
+					//dungeon items are unique in their dungeon
+						isOk = true;
+					}
+					else 
+					{							
+						if (sourceCheck->type == item::ItemType::PoeSoul)
+						{//poes can move a lot so give them more range
+							//poe range= ~1400
+							rangeX = 2800.0f;
+							rangeY = 1400.0f;
+							rangeZ = 2800.0f;
+						}
+						if (sourceCheck->type == item::ItemType::HeartPiece)
+						{//some free standing PoH need to be gotten with boomerang or clawshot
+							//give more range based on boomerang and clawshot range (clawshot = ~2000)
+							rangeX = 2000.0f;
+							rangeY = 2000.0f;
+							rangeZ = 2000.0f;
+						}
+						if(tools::fCompare(sourceCheck->position[0], pos[0]) < rangeX)
 						{
-							if(sourceCheck->itemID == item)
+							if(tools::fCompare(sourceCheck->position[1], pos[1]) < rangeY)
 							{
-								snprintf(lastSourceInfo, 50, "%s->%d->%x", sourceCheck->stage, sourceCheck->room, sourceCheck->itemID);
-								if(sourceCheck->destination)
+								if(tools::fCompare(sourceCheck->position[2], pos[2]) < rangeZ)
 								{
-									snprintf(lastDestInfo, 50, "%s->%d->%x", sourceCheck->destination->stage, sourceCheck->destination->room, sourceCheck->destination->itemID);
-									item = sourceCheck->destination->itemID;
-									// Unset this check
-									sourceCheck->destination = nullptr;
-									return item;
-								}
-								else
-								{
-									snprintf(lastDestInfo, 50, "No replacement here.");
-									return item;
+									isOk = true;
 								}
 							}
+						}
+					}
+					if (isOk)
+					{
+						snprintf(lastSourceInfo, 50, "%s->%d->%x", sourceCheck->stage, sourceCheck->room, sourceCheck->itemID);
+						if(sourceCheck->destination)
+						{
+							snprintf(lastDestInfo, 50, "%s->%d->%x", sourceCheck->destination->stage, sourceCheck->destination->room, sourceCheck->destination->itemID);
+							item = sourceCheck->destination->itemID;
+							// Unset this check
+							sourceCheck->destination = nullptr;
+							//progressive checks (doesn't work if you already have items when generating seed)
+							if (isPorgessiveEnabled == 1)
+							{
+								if(item == items::Item::Wooden_Sword)
+								{
+									if (swordState == 1)
+									{
+										item = items::Item::Ordon_Sword;
+										swordState = 2;
+									}	
+									else 
+									{
+										swordState = 1;
+									}
+								}
+								else if(item == items::Item::Ordon_Sword)
+								{
+									if (swordState == 0)
+									{
+										item = items::Item::Wooden_Sword;
+										swordState = 1;
+									}	
+									else 
+									{
+										swordState = 2;
+									}		
+								}
+								else if(item == items::Item::Clawshot)
+								{
+									if (clawshotState == 1)
+									{
+										item = items::Item::Clawshots;
+										clawshotState = 2;
+									}		
+									else 
+									{
+										clawshotState = 1;
+									}	
+								}
+								else if(item == items::Item::Clawshots)
+								{
+									if (clawshotState == 0)
+									{
+										item = items::Item::Clawshot;
+										clawshotState = 1;
+									}			
+									else 
+									{
+										clawshotState = 2;
+									}					
+								}
+								else if(item == items::Item::Heros_Bow)
+								{
+									if (bowState == 1)
+									{
+										item = items::Item::Big_Quiver;
+										bowState = 2;
+									}
+									else if (bowState == 2)
+									{
+										item = items::Item::Giant_Quiver;
+										bowState = 3;
+									}									
+									else 
+									{
+										bowState = 1;
+									}						
+								}
+								else if(item == items::Item::Big_Quiver)
+								{
+									if (bowState == 0)
+									{
+										item = items::Item::Heros_Bow;
+										bowState = 1;
+									}
+									else if (bowState == 2)
+									{
+										item = items::Item::Giant_Quiver;
+										bowState = 3;
+									}									
+									else 
+									{
+										bowState = 2;
+									}
+								}
+								else if(item == items::Item::Giant_Quiver)
+								{
+									if (bowState == 0)
+									{
+										item = items::Item::Heros_Bow;
+										bowState = 1;
+									}
+									else if (bowState == 1)
+									{
+										item = items::Item::Big_Quiver;
+										bowState = 2;
+									}									
+									else 
+									{
+										bowState = 3;
+									}
+								}
+								else if(item == items::Item::Big_Wallet)
+								{
+									if (walletState == 1)
+									{
+										item = items::Item::Giant_Wallet;
+										walletState = 2;
+									}			
+									else 
+									{
+										walletState = 1;
+									}
+								}
+								else if(item == items::Item::Giant_Wallet)
+								{
+									if (walletState == 0)
+									{
+										item = items::Item::Big_Wallet;
+										walletState = 1;
+									}			
+									else 
+									{
+										walletState = 2;
+									}
+								}
+								else if(item == items::Item::Ancient_Sky_Book_empty)
+								{
+									if (bookState > 1 && bookState < 6)
+									{
+										item = items::Item::Ancient_Sky_Book_partly_filled;
+										bookState++;
+									}
+									else if (bookState == 6)
+									{
+										item = items::Item::Ancient_Sky_Book_completed;
+										bookState = 7;
+									}									
+									else 
+									{
+										bookState = 1;
+									}
+								}
+								else if(item == items::Item::Ancient_Sky_Book_partly_filled)
+								{
+									if (bookState == 0)
+									{
+										item = items::Item::Ancient_Sky_Book_empty;
+										bookState = 1;
+									}
+									else if (bookState == 6)
+									{
+										item = items::Item::Ancient_Sky_Book_completed;
+										bookState = 7;
+									}									
+									else 
+									{
+										bookState++;
+									}
+								}
+							}
+							return item;
+						}
+						else
+						{
+							snprintf(lastDestInfo, 50, "No replacement here.");
+							//no return in the case where 2 items are close enough to be considered the same (bug rewards for example)
 						}
 					}
 				}

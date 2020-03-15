@@ -28,7 +28,7 @@ typedef	signed char 		s8;
 
 // Array modification
 #define MAX_LOAD_EVENTS 10 // eventListener
-#define MAX_HUDCONSOLE_PAGES 3 // HUDConsole
+#define MAX_HUDCONSOLE_PAGES 6 // HUDConsole
 
 // Mnemonics
 #define AUTHOR				"AECX"
