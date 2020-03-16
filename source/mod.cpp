@@ -105,7 +105,7 @@ namespace mod
 		// Debug
 		page = hudConsole->addPage("Debug Info");
 		
-		hudConsole->addOption(page, "Progressive Items?", &chestRandomizer->isPorgessiveEnabled, 0x1);		
+		hudConsole->addOption(page, "Progressive Items?", &chestRandomizer->isProgressiveEnabled, 0x1);		
 		
 		hudConsole->addWatch(page, "Function:", &lastItemFunc, 's', WatchInterpretation::_str);
 		hudConsole->addWatch(page, "  Source:", &chestRandomizer->lastSourceInfo, 's', WatchInterpretation::_str);

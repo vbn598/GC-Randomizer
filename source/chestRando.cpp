@@ -58,13 +58,17 @@ namespace mod
 				if(destCheck->destLayer != 0xFF)
 				{
 					// Layer check	
-					if (isPorgessiveEnabled == 0)
+					if(destCheck->itemID == items::Item::Ordon_Sword)
 					{
-						if(destCheck->itemID == items::Item::Ordon_Sword)
-						{
-							sourceCheck = findSource(destCheck->destLayer, 0x1, destCheck);//to prevent woodensword from being overwritten before losing it			
-						}
-						else if(destCheck->itemID == items::Item::Clawshots)
+						sourceCheck = findSource(destCheck->destLayer, 0x1, destCheck);//to prevent woodensword from being overwritten before losing it			
+					}
+					else if (destCheck->itemID == items::Item::Ordon_Shield || destCheck->itemID == items::Item::Wooden_Shield || destCheck->itemID == items::Item::Hylian_Shield)
+					{
+						sourceCheck = findSource(destCheck->destLayer, 0x2, destCheck);//to prevent softlocking the game when you try to get ordon shield check		
+					}
+					else if (isProgressiveEnabled == 0)
+					{
+						if(destCheck->itemID == items::Item::Clawshots)
 						{
 							sourceCheck = findSource(destCheck->destLayer, 0x7, destCheck);//to prevent Clawshots from being overwritten by Clawshot
 						}
@@ -106,7 +110,14 @@ namespace mod
 				if(item::getFlags(destCheck->itemID, 0) != 0)
 				{
 					// This would unlock new checks, so place it
-					sourceCheck = findSource(0xFF, 0, destCheck);
+					if (destCheck->itemID == items::Item::Ordon_Shield || destCheck->itemID == items::Item::Wooden_Shield || destCheck->itemID == items::Item::Hylian_Shield)
+					{
+						sourceCheck = findSource(0xFF, 0x2, destCheck);//to prevent softlocking the game when you try to get ordon shield check		
+					}
+					else
+					{
+						sourceCheck = findSource(0xFF, 0, destCheck);
+					}
 					placeCheck(sourceCheck, destCheck);
 				}
 			}
@@ -119,7 +130,14 @@ namespace mod
 
 			if(!destCheck->source)
 			{
-				sourceCheck = findSource(0xFF, 0, destCheck);
+				if (destCheck->itemID == items::Item::Ordon_Shield || destCheck->itemID == items::Item::Wooden_Shield || destCheck->itemID == items::Item::Hylian_Shield)
+				{
+					sourceCheck = findSource(0xFF, 0x2, destCheck);//to prevent softlocking the game when you try to get ordon shield check		
+				}
+				else
+				{
+					sourceCheck = findSource(0xFF, 0, destCheck);
+				}
 				placeCheck(sourceCheck, destCheck);
 			}
 		}
@@ -238,21 +256,21 @@ namespace mod
 			break;
 			
 			case items::Item::Ancient_Sky_Book_empty:
-				if (isPorgessiveEnabled == 0)
+				if (isProgressiveEnabled == 0)
 				{
 					result = true;
 				}
 			break;
 			
 			case items::Item::Ancient_Sky_Book_partly_filled:
-				if (isPorgessiveEnabled == 0)
+				if (isProgressiveEnabled == 0)
 				{
 					result = true;
 				}
 			break;
 						
 			case items::Item::Ancient_Sky_Book_completed:
-				if (isPorgessiveEnabled == 0)
+				if (isProgressiveEnabled == 0)
 				{
 					result = true;
 				}
@@ -276,7 +294,7 @@ namespace mod
 
 			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage))
 			{
-				if (isPorgessiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
+				if (isProgressiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
 				{
 					item = items::Item::Ancient_Sky_Book_partly_filled;
 				}
@@ -328,7 +346,7 @@ namespace mod
 							// Unset this check
 							sourceCheck->destination = nullptr;
 							//progressive checks (doesn't work if you already have items when generating seed)
-							if (isPorgessiveEnabled == 1)
+							if (isProgressiveEnabled == 1)
 							{
 								if(item == items::Item::Wooden_Sword)
 								{

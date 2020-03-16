@@ -38,7 +38,7 @@ namespace mod
 			u8 walletState = 0;
 			u8 bookState = 0;
 			
-			u8 isPorgessiveEnabled = 1;
+			u8 isProgressiveEnabled = 1;
 
 		public:
 			/**
