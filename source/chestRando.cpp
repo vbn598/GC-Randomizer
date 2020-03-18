@@ -84,6 +84,10 @@ namespace mod
 						{
 							sourceCheck = findSource(destCheck->destLayer, 0x7, destCheck);//to prevent overwriting giant wallet with big wallet
 						}
+						else if(destCheck->itemID == items::Item::Giant_Bomb_Bag)
+						{
+							sourceCheck = findSource(destCheck->destLayer, 0x6, destCheck);//to prevent getting a 4th bag and possibly crashing the game
+						}
 						else
 						{
 							sourceCheck = findSource(destCheck->destLayer, 0x0, destCheck);
@@ -207,8 +211,7 @@ namespace mod
 				return true;
 			}
 		}
-
-		// If the destination item (which you'll receive) isn't required for this souce it can be placed though
+		// If the destination item (which you'll receive) isn't required for this source and you don't require anything in this layer, it can be placed though
 		if((item::getFlags(destCheck->itemID, 0) & sourceCheck->condition) == 0)
 		{
 			return true;
@@ -503,6 +506,57 @@ namespace mod
 									else 
 									{
 										bookState++;
+									}
+								}
+								else if(item == items::Item::Bomb_Bag_Regular_Bombs)
+								{
+									if (bombBagState == 1 || bombBagState == 2)
+									{
+										item = items::Item::Goron_Bomb_Bag;
+										bombBagState++;
+									}	
+									else if (bombBagState == 3)
+									{
+										item = items::Item::Giant_Bomb_Bag;
+										bombBagState = 4;
+									} 									
+									else 
+									{
+										bombBagState = 1;
+									}
+								}
+								else if(item == items::Item::Goron_Bomb_Bag)
+								{
+									if (bombBagState == 0)
+									{
+										item = items::Item::Bomb_Bag_Regular_Bombs;
+										bombBagState = 1;
+									}
+									else if (bombBagState == 3)
+									{
+										item = items::Item::Giant_Bomb_Bag;
+										bombBagState = 4;
+									} 									
+									else 
+									{
+										bombBagState++;
+									}
+								}
+								else if(item == items::Item::Giant_Bomb_Bag)
+								{
+									if (bombBagState == 0)
+									{
+										item = items::Item::Bomb_Bag_Regular_Bombs;
+										bombBagState = 1;
+									}
+									else if (bombBagState == 1 || bombBagState == 2)
+									{
+										item = items::Item::Goron_Bomb_Bag;
+										bombBagState++;
+									}									
+									else 
+									{
+										bombBagState = 4;
 									}
 								}
 							}

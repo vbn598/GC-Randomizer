@@ -37,6 +37,7 @@ namespace mod
 			u8 clawshotState = 0;
 			u8 walletState = 0;
 			u8 bookState = 0;
+			u8 bombBagState = 0;
 			
 			u8 isProgressiveEnabled = 1;
 
