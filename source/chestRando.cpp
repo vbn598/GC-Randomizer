@@ -345,8 +345,15 @@ namespace mod
 						{
 							snprintf(lastDestInfo, 50, "%s->%d->%x", sourceCheck->destination->stage, sourceCheck->destination->room, sourceCheck->destination->itemID);
 							item = sourceCheck->destination->itemID;
-							// Unset this check
-							sourceCheck->destination = nullptr;
+							if (sourceCheck->type == item::ItemType::Bug)
+							{
+								sourceCheck->destination = &item::checks[263];
+							}
+							else
+							{
+								// Unset this check
+								sourceCheck->destination = nullptr;
+							}
 							//progressive checks (doesn't work if you already have items when generating seed)
 							if (isProgressiveEnabled == 1)
 							{
