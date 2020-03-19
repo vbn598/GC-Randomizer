@@ -5,6 +5,7 @@
 #include "itemChecks.h"
 #include "tools.h"
 #include "array.h"
+#include "stage.h"
 
 #include <tp/d_com_inf_game.h>
 #include <tp/JFWSystem.h>
@@ -190,7 +191,8 @@ namespace mod
 		{
 			u16 index = tools::getRandom(totalChecks);
 			sourceCheck = &item::checks[index];
-		} while(!checkCondition(sourceCheck, destCheck) || sourceCheck->destination || sourceCheck->sourceLayer > maxLayer || sourceCheck->sourceLayer < minLayer);
+		} while(!checkCondition(sourceCheck, destCheck) || sourceCheck->destination || sourceCheck->sourceLayer > maxLayer || sourceCheck->sourceLayer < minLayer ||
+		 (isStageADungeon(sourceCheck->stage) && destCheck->itemID == items::Item::Heart_Container));
 
 		return sourceCheck;
 	}
@@ -578,5 +580,25 @@ namespace mod
 			}
 		}
 		return item;
+	}
+	
+	
+	bool ChestRandomizer::isStageADungeon(char* stage){
+		if(0 == strcmp(stage, stage::allStages[Stage_Lakebed_Temple]) || 0 == strcmp(stage, stage::allStages[Stage_Deku_Toad]) ||
+		0 == strcmp(stage, stage::allStages[Stage_Goron_Mines]) || 0 == strcmp(stage, stage::allStages[Stage_Dangoro]) ||
+		0 == strcmp(stage, stage::allStages[Stage_Forest_Temple]) || 0 == strcmp(stage, stage::allStages[Stage_Ook]) || 
+		0 == strcmp(stage, stage::allStages[Stage_Temple_of_Time]) || 0 == strcmp(stage, stage::allStages[Stage_Darknut]) ||
+		0 == strcmp(stage, stage::allStages[Stage_City_in_the_Sky]) || 0 == strcmp(stage, stage::allStages[Stage_Aeralfos]) || 
+		0 == strcmp(stage, stage::allStages[Stage_Palace_of_Twilight]) || 0 == strcmp(stage, stage::allStages[Stage_Phantom_Zant_1]) ||
+		0 == strcmp(stage, stage::allStages[Stage_Phantom_Zant_2]) || 0 == strcmp(stage, stage::allStages[Stage_Arbiters_Grounds]) || 
+		0 == strcmp(stage, stage::allStages[Stage_Death_Sword]) || 0 == strcmp(stage, stage::allStages[Stage_Snowpeak_Ruins]) ||
+		0 == strcmp(stage, stage::allStages[Stage_Darkhammer]))
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
 	}
 }

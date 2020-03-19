@@ -77,5 +77,14 @@ namespace mod
 			 * Checks if the item should be locked in place
 			 */
 			bool isLocked(item::ItemCheck* check);
+			
+			/**
+			 * Checks if the stage given is a dungeon 
+			 * to prevent heart containers to spawn there so boss heart containers can spawn (doesn't fix it entirely based on Zephiles)
+			 *
+			 *includes miniboss rooms but not boss rooms
+			 *excludes hyrule castle since boss doesn't spawn heart container
+			 */
+			bool isStageADungeon(char* stage);
 	};
 }

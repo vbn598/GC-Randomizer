@@ -8,6 +8,12 @@ check poe max range ~1400
 
 check clawshot range for PoH ~2000
 
+check boomerang range for PoH
+
+-44914 -8129 84906
+
+-48086 -7928 91478
+
 figure out wich event is called when fish caught (for bottle and sinking lure)
 
 figure out how to check if link has an items (for progessive items)
