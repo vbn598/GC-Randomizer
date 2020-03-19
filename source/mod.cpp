@@ -340,7 +340,7 @@ namespace mod
 				if(check->destination->itemID == itemSearchID)
 				{
 					// Found the source
-					snprintf(itemSearchResults, 30, "Stage: %s Room: %d", check->stage, check->room);
+					snprintf(itemSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
 				}
 			}
 		}
@@ -356,7 +356,7 @@ namespace mod
 				if(check->source->itemID == itemReverseSearchID)
 				{
 					// Found the source
-					snprintf(itemReverseSearchResults, 30, "Stage: %s Room: %d", check->stage, check->room);
+					snprintf(itemReverseSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
 				}
 			}
 		}
