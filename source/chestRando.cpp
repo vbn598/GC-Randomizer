@@ -304,7 +304,7 @@ namespace mod
 					item = items::Item::Ancient_Sky_Book_partly_filled;
 				}
 				// Correct stage
-				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)))
+				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)) || (item == items::Item::Red_Rupee && sourceCheck->itemID == items::Item::Giant_Bomb_Bag))
 				{
 					bool isOk = false;
 					
