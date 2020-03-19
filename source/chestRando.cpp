@@ -308,9 +308,8 @@ namespace mod
 				{
 					bool isOk = false;
 					
-					if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Gear
-					|| sourceCheck->type == item::ItemType::Equip || sourceCheck->type == item::ItemType::Dungeon || sourceCheck->type == item::ItemType::Story)
-					{//bugs, gear, equipment, story items have unique itemids so position doesn't matter
+					if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Dungeon)
+					{//bugs have unique itemids so position doesn't matter
 					//dungeon items are unique in their dungeon
 						isOk = true;
 					}
@@ -351,7 +350,7 @@ namespace mod
 							{
 								sourceCheck->destination = &item::checks[263];
 							}
-							else if (sourceCheck->itemID != items::Item::Big_Quiver && sourceCheck->itemID != items::Item::Giant_Quiver)
+							else if (sourceCheck->itemID != items::Item::Big_Quiver && sourceCheck->itemID != items::Item::Giant_Quiver && sourceCheck->itemID != items::Item::Zora_Armor) // quiver checks and zora armor check called twice somehow
 							{
 								// Unset this check
 								sourceCheck->destination = nullptr;
