@@ -351,7 +351,7 @@ namespace mod
 							{
 								sourceCheck->destination = &item::checks[263];
 							}
-							else
+							else if (sourceCheck->itemID != items::Item::Big_Quiver && sourceCheck->itemID != items::Item::Giant_Quiver)
 							{
 								// Unset this check
 								sourceCheck->destination = nullptr;
