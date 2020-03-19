@@ -304,7 +304,7 @@ namespace mod
 					item = items::Item::Ancient_Sky_Book_partly_filled;
 				}
 				// Correct stage
-				if(sourceCheck->itemID == item)
+				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)))
 				{
 					bool isOk = false;
 					
@@ -583,7 +583,8 @@ namespace mod
 	}
 	
 	
-	bool ChestRandomizer::isStageADungeon(char* stage){
+	bool ChestRandomizer::isStageADungeon(char* stage)
+	{
 		if(0 == strcmp(stage, stage::allStages[Stage_Lakebed_Temple]) || 0 == strcmp(stage, stage::allStages[Stage_Deku_Toad]) ||
 		0 == strcmp(stage, stage::allStages[Stage_Goron_Mines]) || 0 == strcmp(stage, stage::allStages[Stage_Dangoro]) ||
 		0 == strcmp(stage, stage::allStages[Stage_Forest_Temple]) || 0 == strcmp(stage, stage::allStages[Stage_Ook]) || 
@@ -597,6 +598,20 @@ namespace mod
 			return true;
 		}
 		else 
+		{
+			return false;
+		}
+	}
+	
+	bool ChestRandomizer::isItemBombs(u8 itemID)
+	{
+		if (itemID == items::Item::Bombs_5 || itemID == items::Item::Bombs_10 || itemID == items::Item::Bombs_20 || itemID == items::Item::Bombs_30 ||
+		itemID == items::Item::Water_Bombs_5 || itemID == items::Item::Water_Bombs_10 || itemID == items::Item::Water_Bombs_15 || itemID == items::Item::Water_Bombs_5_2 ||
+		itemID == items::Item::Bomblings_10)
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}

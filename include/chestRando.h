@@ -86,5 +86,13 @@ namespace mod
 			 *excludes hyrule castle since boss doesn't spawn heart container
 			 */
 			bool isStageADungeon(char* stage);
+			
+			/**
+			 * checks if item given is a type of bombs
+			 * to prevent problems with the game changing bomb type based on type of bombs in inventory
+			 *
+			 * excludes bomb bag+bombs
+			 */
+			bool isItemBombs(u8 itemID);
 	};
 }
