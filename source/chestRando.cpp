@@ -605,8 +605,8 @@ namespace mod
 	bool ChestRandomizer::isItemBombs(u8 itemID)
 	{
 		if (itemID == items::Item::Bombs_5 || itemID == items::Item::Bombs_10 || itemID == items::Item::Bombs_20 || itemID == items::Item::Bombs_30 ||
-		itemID == items::Item::Water_Bombs_5 || itemID == items::Item::Water_Bombs_10 || itemID == items::Item::Water_Bombs_15 || itemID == items::Item::Water_Bombs_5_2 ||
-		itemID == items::Item::Bomblings_10)
+		itemID == items::Item::Water_Bombs_5 || itemID == items::Item::Water_Bombs_10 || itemID == items::Item::Water_Bombs_15 ||
+		itemID == items::Item::Bomblings_5 || itemID == items::Item::Bomblings_10)
 		{
 			return true;
 		}

@@ -29,11 +29,13 @@
 
 4: 100r #189 Snowpeak1 BaC
 
+
+
 Empty:
 Gerudo2
 Eldin1
 Faron2
-Lanayru3
+Lanayru3 (poes)
 Lanayru5
 Snowpeak2
 

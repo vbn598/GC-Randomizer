@@ -32,7 +32,7 @@ namespace mod::items
 		Water_Bombs_10	=	0x17,
 		Water_Bombs_15	=	0x18,
 		/*?	=	0x19,*/
-		Water_Bombs_5_2	=	0x1A,
+		Bomblings_5	=	0x1A,
 		Bomblings_10	=	0x1B,
 		/*?	=	0x1C,*/
 		/*?	=	0x1D,*/
