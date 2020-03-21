@@ -19,7 +19,7 @@
 5: 50r #123 Eldin3 -
 4: 100r #124 Gerudo1 -
 
-3: 100r #132 Gerudo3 Bombs, Clawshot, Lantern
+3: 100r #132 Gerudo3 (poes) Bombs, Clawshot, Lantern
 
 2: 5b #163 Eldin4 Spinner
 2: 5b #164 Eldin4 Spinner

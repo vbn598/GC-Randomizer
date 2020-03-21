@@ -67,6 +67,10 @@ namespace mod
 					{
 						sourceCheck = findSource(destCheck->destLayer, 0x2, destCheck);//to prevent softlocking the game when you try to get ordon shield check		
 					}
+					else if (destCheck->itemID == items::Item::Ancient_Sky_Book_partly_filled)
+					{
+						sourceCheck = findSource(destCheck->destLayer, 0x12, destCheck);//to prevent softlocking the game when you try to get ordon shield check		
+					}
 					else if (isProgressiveEnabled == 0)
 					{
 						if(destCheck->itemID == items::Item::Clawshots)
@@ -192,7 +196,8 @@ namespace mod
 			u16 index = tools::getRandom(totalChecks);
 			sourceCheck = &item::checks[index];
 		} while(!checkCondition(sourceCheck, destCheck) || sourceCheck->destination || sourceCheck->sourceLayer > maxLayer || sourceCheck->sourceLayer < minLayer ||
-		 (isStageADungeon(sourceCheck->stage) && destCheck->itemID == items::Item::Heart_Container));
+		 (isStageADungeon(sourceCheck->stage) && destCheck->itemID == items::Item::Heart_Container) || 
+		 (destCheck->itemID == items::Item::Ancient_Sky_Book_partly_filled && (0 == strcmp("D_MN06", sourceCheck->stage) || 0 == strcmp("D_MN06A", sourceCheck->stage))) );
 
 		return sourceCheck;
 	}
@@ -292,7 +297,7 @@ namespace mod
 		item::ItemCheck* sourceCheck;
 		snprintf(lastSourceInfo, 50, "%s %4.0f %4.0f %4.0f", gameInfo.currentStage, pos[0], pos[1], pos[2]);
 		snprintf(lastDestInfo, 50, "No Replacement found for this source");
-
+		
 		for(u16 i = 0; i < totalChecks; i++)
 		{
 			sourceCheck = &item::checks[i];
