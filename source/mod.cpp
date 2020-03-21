@@ -249,10 +249,12 @@ namespace mod
 
 	void Mod::procNewFrame()
 	{
-		
-		snprintf(currentPosX, 30, "%f", gameInfo.linkMapPtr->pos[0]);
-		snprintf(currentPosY, 30, "%f", gameInfo.linkMapPtr->pos[1]);
-		snprintf(currentPosZ, 30, "%f", gameInfo.linkMapPtr->pos[2]);
+		float linkPos[3];
+		getPlayerPos(linkPos);
+
+		snprintf(currentPosX, 30, "%f", linkPos[0]);
+		snprintf(currentPosY, 30, "%f", linkPos[1]);
+		snprintf(currentPosZ, 30, "%f", linkPos[2]);
 		// Increment seed
 		if(!customSeed)
 		{
