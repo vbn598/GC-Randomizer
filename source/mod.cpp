@@ -339,10 +339,13 @@ namespace mod
 			for(u16 i = 0; i < chestRandomizer->totalChecks; i++)
 			{
 				item::ItemCheck* check = &item::checks[i];
-				if(check->destination->itemID == itemSearchID)
+				if (check->destination)
 				{
-					// Found the source
-					snprintf(itemSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
+					if(check->destination->itemID == itemSearchID)
+					{
+						// Found the source
+						snprintf(itemSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
+					}
 				}
 			}
 		}
@@ -355,10 +358,13 @@ namespace mod
 			for(u16 i = 0; i < chestRandomizer->totalChecks; i++)
 			{
 				item::ItemCheck* check = &item::checks[i];
-				if(check->source->itemID == itemReverseSearchID)
+				if (check->source)
 				{
-					// Found the source
-					snprintf(itemReverseSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
+					if(check->source->itemID == itemReverseSearchID)
+					{
+						// Found the source
+						snprintf(itemReverseSearchResults, 40, "ID: %x Stage: %s Room: %d", check->itemID, check->stage, check->room);
+					}
 				}
 			}
 		}
