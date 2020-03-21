@@ -302,7 +302,7 @@ namespace mod
 		{
 			sourceCheck = &item::checks[i];
 
-			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage))
+			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage) || (0 == strcmp(gameInfo.currentStage, "F_SP128") && 0 == strcmp(sourceCheck->stage, "R_SP128")))
 			{
 				if (isProgressiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
 				{
