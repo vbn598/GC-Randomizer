@@ -198,8 +198,9 @@ namespace mod
 			u16 index = tools::getRandom(totalChecks);
 			sourceCheck = &item::checks[index];
 		} while(!checkCondition(sourceCheck, destCheck) || sourceCheck->destination || sourceCheck->sourceLayer > maxLayer || sourceCheck->sourceLayer < minLayer ||
-		 (isStageADungeon(sourceCheck->stage) && destCheck->itemID == items::Item::Heart_Container) || 
-		 (destCheck->itemID == items::Item::Ancient_Sky_Book_partly_filled && (0 == strcmp("D_MN06", sourceCheck->stage) || 0 == strcmp("D_MN06A", sourceCheck->stage))) );
+		 (isStageADungeon(sourceCheck->stage) && destCheck->itemID == items::Item::Heart_Container) || //no heart containers in dungeons
+		 (destCheck->itemID == items::Item::Ancient_Sky_Book_partly_filled && (0 == strcmp("D_MN06", sourceCheck->stage) || 0 == strcmp("D_MN06A", sourceCheck->stage))) || //no sky letters in ToT
+		 (destCheck->type == item::ItemType::Bug && 0 == strcmp("R_SP160", sourceCheck->stage) &&  sourceCheck->room == 3));//agitha can't give bugs
 
 		return sourceCheck;
 	}
