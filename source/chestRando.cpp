@@ -300,7 +300,7 @@ namespace mod
 		snprintf(lastSourceInfo, 50, "%s %4.0f %4.0f %4.0f", gameInfo.currentStage, pos[0], pos[1], pos[2]);
 		snprintf(lastDestInfo, 50, "No Replacement found for this source");
 		
-		/*if (item == items::Item::Milk_half)
+		/*if (item == items::Item::Sera_Bottle)
 		{			//for testing only
 			item = itemThatReplacesHalfMilk;
 			return item;
@@ -317,7 +317,6 @@ namespace mod
 
 			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage) || (0 == strcmp(gameInfo.currentStage, "F_SP128") && 0 == strcmp(sourceCheck->stage, "R_SP128")))
 			{
-						snprintf(lastDestInfo, 50, "test1");
 
 				if (isProgressiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
 				{
@@ -326,7 +325,6 @@ namespace mod
 				// Correct stage
 				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)) || (item == items::Item::Red_Rupee && sourceCheck->itemID == items::Item::Giant_Bomb_Bag))
 				{
-						snprintf(lastDestInfo, 50, "test2");
 					bool isOk = false;
 					
 					if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Dungeon)
@@ -343,7 +341,6 @@ namespace mod
 					}
 					else 
 					{	
-						snprintf(lastDestInfo, 50, "test3");						
 						if (sourceCheck->type == item::ItemType::PoeSoul)
 						{//poes can move a lot so give them more range
 							//poe range= ~1400
