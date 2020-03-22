@@ -252,6 +252,20 @@ namespace mod
 				// Ilia quest
 				result = true;
 			break;
+			
+			case item::ItemType::Bug:
+				if (isBugsanityEnabled == 0)
+				{
+					result = true;
+				}
+			break;
+						
+			case item::ItemType::PoeSoul:
+				if (isPoesanityEnabled == 0)
+				{
+					result = true;
+				}
+			break;
 		}
 
 		switch(check->itemID)
