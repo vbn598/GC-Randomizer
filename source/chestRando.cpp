@@ -47,6 +47,8 @@ namespace mod
 				placeCheck(&item::checks[i], &item::checks[i]);
 			}
 		}
+		
+		
 
 		// Place layer checks
 		for(u16 i = 0; i < totalChecks; i++)
@@ -298,12 +300,25 @@ namespace mod
 		snprintf(lastSourceInfo, 50, "%s %4.0f %4.0f %4.0f", gameInfo.currentStage, pos[0], pos[1], pos[2]);
 		snprintf(lastDestInfo, 50, "No Replacement found for this source");
 		
+		/*if (item == items::Item::Milk_half)
+		{			//for testing only
+			item = itemThatReplacesHalfMilk;
+			return item;
+		}
+		else if (item == items::Item::Slingshot)
+		{			//for testing only
+			item = itemThatReplacesSlingShot;
+			return item;
+		}*/
+		
 		for(u16 i = 0; i < totalChecks; i++)
 		{
 			sourceCheck = &item::checks[i];
 
 			if(0 == strcmp(gameInfo.currentStage, sourceCheck->stage) || (0 == strcmp(gameInfo.currentStage, "F_SP128") && 0 == strcmp(sourceCheck->stage, "R_SP128")))
 			{
+						snprintf(lastDestInfo, 50, "test1");
+
 				if (isProgressiveEnabled == 1 && item == items::Item::Ancient_Sky_Book_completed)
 				{
 					item = items::Item::Ancient_Sky_Book_partly_filled;
@@ -311,6 +326,7 @@ namespace mod
 				// Correct stage
 				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)) || (item == items::Item::Red_Rupee && sourceCheck->itemID == items::Item::Giant_Bomb_Bag))
 				{
+						snprintf(lastDestInfo, 50, "test2");
 					bool isOk = false;
 					
 					if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Dungeon)
@@ -320,12 +336,14 @@ namespace mod
 					}
 					else if (sourceCheck->itemID == items::Item::Piece_of_Heart && ((0 == strcmp("F_SP121", sourceCheck->stage) && sourceCheck->room == 6) || 
 						(0 == strcmp("F_SP109", sourceCheck->stage) && sourceCheck->room == 0) || (0 == strcmp("F_SP121", sourceCheck->stage) && sourceCheck->room == 3) ||
-						(0 == strcmp("F_SP121", sourceCheck->stage) && sourceCheck->room == 0) || (0 == strcmp("F_SP127", sourceCheck->stage) && sourceCheck->room == 0)))
+						(0 == strcmp("F_SP121", sourceCheck->stage) && sourceCheck->room == 0) || (0 == strcmp("F_SP127", sourceCheck->stage) && sourceCheck->room == 0)  ||
+						(0 == strcmp("F_SP128", sourceCheck->stage) && sourceCheck->room == 0)))
 					{//freestanding PoH
 						isOk = true;
 					}
 					else 
-					{							
+					{	
+						snprintf(lastDestInfo, 50, "test3");						
 						if (sourceCheck->type == item::ItemType::PoeSoul)
 						{//poes can move a lot so give them more range
 							//poe range= ~1400

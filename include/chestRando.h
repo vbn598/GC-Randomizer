@@ -40,6 +40,9 @@ namespace mod
 			u8 bombBagState = 0;
 			
 			u8 isProgressiveEnabled = 1;
+			
+			u8 itemThatReplacesHalfMilk = 0;
+			u8 itemThatReplacesSlingShot = 0;
 
 		public:
 			/**
