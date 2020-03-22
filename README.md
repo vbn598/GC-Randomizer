@@ -22,9 +22,7 @@ This means these items are not randomized in this version:
 * Fished items (might be possible in an update from the [official version](https://github.com/zsrtp/Randomizer) )
 
 ### What is planned for later versions
-* Shop bottle contents (excludes Trill and Coro shop)
-* Shop ammo that triggers a cutscene
-* Dungeon items (Map, Compas, Boss key, Ooccoo) (but only inside their own dungeon)
+* Dungeon items (Map, Compas, Boss key, Ooccoo) (but only inside their own dungeon) (pretty boring might not do it tbh)
 
 ### If you think an item check wasn't randomized properly:
 1. Get the item check in-game
