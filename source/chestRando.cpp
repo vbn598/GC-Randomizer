@@ -266,6 +266,13 @@ namespace mod
 					result = true;
 				}
 			break;
+			
+			case item::ItemType::Shop:
+				if (isShopsanityEnabled == 0)
+				{
+					result = true;
+				}
+			break;
 		}
 
 		switch(check->itemID)
@@ -338,7 +345,9 @@ namespace mod
 					item = items::Item::Ancient_Sky_Book_partly_filled;
 				}
 				// Correct stage
-				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)) || (item == items::Item::Red_Rupee && sourceCheck->itemID == items::Item::Giant_Bomb_Bag))
+				if(sourceCheck->itemID == item || (isItemBombs(item) && isItemBombs(sourceCheck->itemID)) ||
+				(item == items::Item::Red_Rupee && sourceCheck->itemID == items::Item::Giant_Bomb_Bag) || 
+				(item == items::Item::Lantern_Refill_Shop && sourceCheck->itemID == items::Item::Lantern_Oil_Shop))
 				{
 					bool isOk = false;
 					
@@ -381,7 +390,7 @@ namespace mod
 						{
 							snprintf(lastDestInfo, 50, "%s->%d->%x", sourceCheck->destination->stage, sourceCheck->destination->room, sourceCheck->destination->itemID);
 							item = sourceCheck->destination->itemID;
-							if (sourceCheck->type == item::ItemType::Bug)
+							if (sourceCheck->type == item::ItemType::Bug || sourceCheck->type == item::ItemType::Shop)
 							{
 								sourceCheck->destination = &item::checks[263];
 							}

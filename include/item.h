@@ -54,7 +54,8 @@ namespace mod::item
 		Key = 8,
 		Bottle = 9,
 		Bug = 10,
-		PoeSoul = 11
+		PoeSoul = 11,
+		Shop = 12
 	};
 
 	/**

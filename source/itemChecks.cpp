@@ -6,7 +6,7 @@
 
 namespace mod::item
 {
-	ItemCheck checks[464] = {
+	ItemCheck checks[483] = {
 /* 0 */{0x3F, 1, stage::allStages[65], 4, 0x0, 0x0, 0b000000000000000000000, -1.6259740, 0.0000000, -207.4881290, nullptr, nullptr},
 /* 1 */{0x03, 7, stage::allStages[40], 0, 0x1, 0xFF, 0b110000000000000000100, -3550.8691410, 4450.0000000, -694.8996580, nullptr, nullptr},
 /* 2 */{0xEE, 8, stage::allStages[45], 14, 0x1, 0xFF, 0b000000000000000000100, 1221.9044190, 50.0000000, -7.9423170, nullptr, nullptr},
@@ -302,13 +302,13 @@ namespace mod::item
 /* 292 */{0x28, 1, stage::allStages[65], 5, 0x1, 0x1, 0b000000000000000000000, 128.0923770, 7.8601500, -167.8504940, nullptr, nullptr},
 /* 293 */{0x4A, 0, stage::allStages[43], 0, 0x0, 0x0, 0b000000000000000000000, -3566.3000000, 579.2000000, 2977.2000000, nullptr, nullptr},
 /* 294 */{0x65, 9, stage::allStages[65], 1, 0x0, 0xFF, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
-/* 295 */{0x4B, 0, stage::allStages[65], 1, 0x0, 0x0, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
+/* 295 */{0x4B, 12, stage::allStages[65], 1, 0x0, 0x0, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
 /* 296 */{0x48, 0, stage::allStages[45], 3, 0x0, 0x0, 0b100010000000000001000, -13659.0000000, 0.0000000, -14367.0000000, nullptr, nullptr},
-/* 297 */{0x2C, 1, stage::allStages[68], 3, 0xFF, 0x2, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
-/* 298 */{0x2B, 1, stage::allStages[68], 3, 0x2, 0xFF, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
+/* 297 */{0x2C, 12, stage::allStages[68], 3, 0xFF, 0x2, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
+/* 298 */{0x2B, 12, stage::allStages[68], 3, 0x2, 0xFF, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
 /* 299 */{0x55, 1, stage::allStages[74], 7, 0x7, 0x7, 0b111111100010000000000, -4400.0000000, 0.0000000, 2500.0000000, nullptr, nullptr},
 /* 300 */{0x56, 1, stage::allStages[74], 7, 0x14, 0x14, 0b111111100001000000000, -4400.0000000, 0.0000000, 2500.0000000, nullptr, nullptr},
-/* 301 */{0x2C, 1, stage::allStages[73], 4, 0xFF, 0xFF, 0b111111100000000000000, -494.7930300, 100.0000000, 3701.0000000, nullptr, nullptr},
+/* 301 */{0x2C, 12, stage::allStages[73], 4, 0xFF, 0xFF, 0b111111100000000000000, -494.7930300, 100.0000000, 3701.0000000, nullptr, nullptr},
 /* 302 */{0x21, 3, stage::allStages[46], 0, 0x2, 0xFF, 0b111111100000000000000, -2010.0000000, 151.0000000, 7897.0000000, nullptr, nullptr},
 /* 303 */{0x21, 3, stage::allStages[56], 6, 0x2, 0xFF, 0b110110000000000000000, -46688.0000000, -7953.0000000, 86307.0000000, nullptr, nullptr},
 /* 304 */{0x21, 3, stage::allStages[56], 3, 0x2, 0xFF, 0b110110000000000000000, -21270.0000000, -5620.0000000, 55553.0000000, nullptr, nullptr},
@@ -322,10 +322,10 @@ namespace mod::item
 /* 312 */{0x22, 3, stage::allStages[13], 50, 0x14, 0xFF, 0b111111010101111000000, 317.0000000, 0.0000000, 764.0000000, nullptr, nullptr},
 /* 313 */{0x22, 3, stage::allStages[16], 10, 0xFF, 0xFF, 0b111111010101111000000, -3.0000000, 2525.0000000, -14603.0000000, nullptr, nullptr},
 /* 314 */{0x31, 1, stage::allStages[48], 0, 0x5, 0x5, 0b111111100000000000000, 21364.0000000, 525.0000000, -50.0000000, nullptr, nullptr},
-/* 315 */{0x30, 1, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+/* 315 */{0x30, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
 /* 316 */{0x4F, 1, stage::allStages[52], 0, 0x5, 0xFF, 0b111111110000000000000, -77679.9375000, -18765.0000000, 40764.0000000, nullptr, nullptr},
 /* 317 */{0x3D, 0, stage::allStages[48], 0, 0x9, 0x9, 0b111111010010101000000, 21070.0000000, 500.0000000, 181.0000000, nullptr, nullptr},
-/* 318 */{0x3E, 0, stage::allStages[68], 3, 0x4, 0x11, 0b111111000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
+/* 318 */{0x3E, 12, stage::allStages[68], 3, 0x4, 0x11, 0b111111000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
 ///* 319 */{0xEB, 0, stage::allStages[68], 0, 0x12, 0xFF, 0b111111010110111000000, 2537.0000000, 104.0000000, -1304.0000000, nullptr, nullptr},
 /* 320 */{0x51, 0, stage::allStages[50], 0, 0x5, 0xFF, 0b111111010000000000000, 44.0000000, -3854.0000000, -2626.0000000, nullptr, nullptr},
 /* 321 */{0x70, 0, stage::allStages[68], 1, 0xFF, 0x4, 0b111111000000000000000, 800.0000000, 0.0000000, -300.0000000, nullptr, nullptr},
@@ -341,7 +341,7 @@ namespace mod::item
 /* 330 */{0x9d, 9, stage::allStages[45], 4, 0x1, 0xFF, 0b000000000000000000000, -13659.433594, -0.454284, -14367.083008, nullptr, nullptr},
 /* 331 */{0x75, 9, stage::allStages[73], 5, 0x7, 0xFF, 0b000000000000000000000, 4250.363281, 134.492020, 1813.639648, nullptr, nullptr},
 //TODO/* 332 not randomized*///{0x60, 9, stage::allStages[62], 0, 0x5, 0xFF, 0b000000000000000000000, -13659.0000000, 0.0000000, -14367.0000000, nullptr, nullptr},
-/* 333 */{0x2B, 1, stage::allStages[47], 3, 0x3, 0xFF, 0b001000000000000000000, -6545.0000000, -125.0000000, -2275.0000000, nullptr, nullptr},
+/* 333 */{0x2B, 12, stage::allStages[47], 3, 0x3, 0xFF, 0b001000000000000000000, -6545.0000000, -125.0000000, -2275.0000000, nullptr, nullptr},
 /* 334 */{0x21, 3, stage::allStages[46], 0, 0x4, 0xFF, 0b000001000000000000000, -900.000000, 0.780221, 6600.000000, nullptr, nullptr},
 /* 335 */{0x21, 3, stage::allStages[53], 2, 0x5, 0xFF, 0b000000000000000000000, -4142.703125, 0.000000, -569.375000, nullptr, nullptr},
 /* 336 */{0x21, 3, stage::allStages[62], 0, 0x7, 0xFF, 0b101000000010000000000, -2678.128906, -167.094162, 2246.794186, nullptr, nullptr},
@@ -480,6 +480,42 @@ namespace mod::item
 /*edin bridge*/{0xea, 0, stage::allStages[56], 0, 0x12, 0x12, 0b000000000000010000000, 33650.000000, -80.000000, -35970.000000, nullptr, nullptr},
 /*west castle*/{0xea, 0, stage::allStages[57], 8, 0x12, 0x12, 0b000000000000010000000, -81950.000000, -1300.000000, 20650.000000, nullptr, nullptr},
 /*hylia bridge*/{0xea, 0, stage::allStages[56], 13, 0x12, 0x12, 0b000000000000010000000, -94664.000000, -5040.000000, 18311.000000, nullptr, nullptr},
-/*desert*/{0xea, 0, stage::allStages[59], 0, 0x12, 0x12, 0b000000000000010000000, 15120.000000, 952.169983, 59670.000000, nullptr, nullptr}
+/*desert*/{0xea, 0, stage::allStages[59], 0, 0x12, 0x12, 0b000000000000010000000, 15120.000000, 952.169983, 59670.000000, nullptr, nullptr},
+//shop items
+//Ordon
+{0x64, 12, stage::allStages[65], 1, 0x5, 0xFF, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
+{0x66, 12, stage::allStages[65], 1, 0x5, 0xFF, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
+{0x9e, 12, stage::allStages[65], 1, 0x5, 0xFF, 0b000000000000000000000, -55.0000000, 0.0000000, -156.0000000, nullptr, nullptr},
+//Malo Kakariko
+/*auto gotten*///{0x0e, 12, stage::allStages[68], 3, 0x5, 0xFF, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
+{0x61, 12, stage::allStages[68], 3, 0x5, 0xFF, 0b001000000000000000000, -500.0000000, 320.0000000, -695.0000000, nullptr, nullptr},
+//Goron Shop Death Mountain
+/*auto gotten*///{0x0e, 12, stage::allStages[47], 3, 0x5, 0xFF, 0b001000000000000000000, -6545.0000000, -125.0000000, -2275.0000000, nullptr, nullptr},
+{0x66, 12, stage::allStages[47], 3, 0x5, 0xFF, 0b001000000000000000000, -6545.0000000, -125.0000000, -2275.0000000, nullptr, nullptr},
+{0x64, 12, stage::allStages[47], 3, 0x5, 0xFF, 0b001000000000000000000, -6545.0000000, -125.0000000, -2275.0000000, nullptr, nullptr},
+//Goron Night Kakariko
+{0x63, 12, stage::allStages[46], 0, 0x5, 0xFF, 0b001000000000000000000, -1350.000000, 0.000000, -3070.000000, nullptr, nullptr},
+{0x61, 12, stage::allStages[46], 0, 0x5, 0xFF, 0b001000000000000000000, -1350.000000, 0.000000, -3070.000000, nullptr, nullptr},
+{0x66, 12, stage::allStages[46], 0, 0x5, 0xFF, 0b001000000000000000000, -1350.000000, 0.000000, -3070.000000, nullptr, nullptr},
+//Goron Merchants Castle Town
+{0x61, 12, stage::allStages[73], 4, 0x5, 0xFF, 0b111111100000000000000, -685.106323, 100.000000, 3819.986572, nullptr, nullptr},
+{0x66, 12, stage::allStages[73], 4, 0x5, 0xFF, 0b111111100000000000000, -801.576233, 1000.000000, 4318.003906, nullptr, nullptr},
+{0x10, 12, stage::allStages[53], 0, 0x5, 0xFF, 0b111111100000000000000, -169.985306, 1120.000000, 3406.518799, nullptr, nullptr},
+{0x6d, 12, stage::allStages[53], 3, 0x7, 0xFF, 0b111111100000000000000, 511.206268, -200.000000, 7069.889160, nullptr, nullptr},
+//Malo Castle Town
+/*auto gotten*///{0x0d, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+/*auto gotten*///{0x18, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+/*auto gotten*///{0x1b, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+/*auto gotten*///{0x0e, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+{0x61, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+{0x63, 12, stage::allStages[73], 0, 0x7, 0xFF, 0b111111100000000000000, 1557.0000000, -200.0000000, 3491.0000000, nullptr, nullptr},
+//City In The Sky
+/*auto gotten*///{0x10, 12, stage::allStages[12], 16, 0x13, 0xFF, 0b111111100000000000000, -187.485748, 140.000000, -327.944885, nullptr, nullptr},
+/*auto gotten*///{0x0d, 12, stage::allStages[12], 16, 0x13, 0xFF, 0b111111100000000000000, -187.485748, 140.000000, -327.944885, nullptr, nullptr},
+{0x66, 12, stage::allStages[12], 16, 0x13, 0xFF, 0b111111100000000000000, -187.485748, 140.000000, -327.944885, nullptr, nullptr},
+{0x61, 12, stage::allStages[12], 16, 0x13, 0xFF, 0b111111100000000000000, -187.485748, 140.000000, -327.944885, nullptr, nullptr},
+{0x63, 12, stage::allStages[12], 16, 0x13, 0xFF, 0b111111100000000000000, -187.485748, 140.000000, -327.944885, nullptr, nullptr},
+//Fairy Tear Cave Of Ordeals (includes spring warps)
+{0x73, 12, stage::allStages[31], 49, 0x14, 0xFF, 0b100000000101110000010, -7.837189, -61250.000000, -3557.497070, nullptr, nullptr},
 	};
 }

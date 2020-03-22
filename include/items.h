@@ -108,7 +108,7 @@ namespace mod::items
 		Blue_Potion	=	0x63,
 		Milk	=	0x64,
 		Sera_Bottle	=	0x65,
-		Lantern_oil_Shop	=	0x66,
+		Lantern_Oil_Shop	=	0x66,
 		Water	=	0x67,
 		Lantern_Oil_Scooped	=	0x68,
 		Red_Potion_Scooped	=	0x69,

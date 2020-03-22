@@ -5,5 +5,5 @@
 
 namespace mod::item
 {
-	extern ItemCheck checks[464];
+	extern ItemCheck checks[483];
 }
