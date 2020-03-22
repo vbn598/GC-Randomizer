@@ -104,6 +104,8 @@ Get values gate keys F_SP123->13 0xf3 -93334.218750 -5725.979980 44504.023438
 
 Get values bulblin camp key F_SP118->1 0x20 4543.199219 261.860168 -3035.944092
 
+get values key king bulblin hyrule castle D_MN09->13 0x20 -7625.000000 52.000000 -5525.000000
+
 
 Get values for Key Shard 1 0xf9 -15375.557617 -636.630005 1595.673462
 
