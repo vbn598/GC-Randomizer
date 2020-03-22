@@ -21,7 +21,7 @@ This means these items are not randomized in this version:
 * Scoopable bottle contents (might be possible in an update from the [official version](https://github.com/zsrtp/Randomizer) )
 * Fished items (might be possible in an update from the [official version](https://github.com/zsrtp/Randomizer) )
 
-###What is planned for later versions
+### What is planned for later versions
 * Shop bottle contents (excludes Trill and Coro shop)
 * Shop ammo that triggers a cutscene
 * Dungeon items (Map, Compas, Boss key, Ooccoo) (but only inside their own dungeon)
